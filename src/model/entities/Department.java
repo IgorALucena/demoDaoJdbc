@@ -3,7 +3,7 @@ package model.entities;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class Department implements Serializable { // usa-se o serialible quando meus dados devem ser gravados em arquivo ou trafegado na rede. Transforma os dados em sequencia de byte. Usado sobretudo em persistência
+public class Department implements Serializable { // usa-se o serialible quando meus dados devem ser gravados em arquivo ou trafegado na rede. Transforma os dados em sequência de byte. Usado sobretudo em persistência
 	
 	private static final long serialVersionUID = 1L;
 	
