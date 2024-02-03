@@ -1,5 +1,6 @@
 package apliccation;
 
+import java.util.Date;
 import java.util.List;
 
 import model.dao.DaoFactory;
@@ -14,7 +15,7 @@ public class Program {
 		
 		SellerDao sellerDao = DaoFactory.createSellerDao();
 		
-		System.out.println("TEST 1 => findById:");
+		System.out.println("TEST 1 => findById:"); // primeiro a perisitência para depois intanciar.
 		
 		Seller rows = sellerDao.findById(3);
 		
@@ -35,6 +36,12 @@ public class Program {
 		for(Seller sel: list) {
 			System.out.println(sel);
 		}
+		
+		System.out.println("\n=== TEST 4: seller insert ====="); // primeiro instancio para persistência
+		Seller newSeller = new Seller(null, "Greg", "greg@gmail.com", new Date(), 4000.0, department);
+		sellerDao.insert(newSeller);
+		System.out.println("Inserted! New id = " + newSeller.getId());
+		
 		
 
 	}
