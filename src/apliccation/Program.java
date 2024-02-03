@@ -28,6 +28,14 @@ public class Program {
 			System.out.println(li);
 		}
 		
+		System.out.println("TEST 3 => findAll:");
+		
+		list = sellerDao.findAll();
+		
+		for(Seller sel: list) {
+			System.out.println(sel);
+		}
+		
 
 	}
 
