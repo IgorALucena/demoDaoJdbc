@@ -13,6 +13,8 @@ public class Program {
 		
 		Seller rows = sellerDao.findById(3);
 		
+		System.out.println("TEST 1 => findById:");
+		
 		System.out.println(rows);
 
 	}
