@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import model.dao.DaoFactory;
+import model.dao.DepartmentDao;
 import model.dao.SellerDao;
 import model.dao.impl.SellerDaoJDBC;
 import model.entities.Department;
@@ -15,13 +16,13 @@ public class Program {
 		
 		SellerDao sellerDao = DaoFactory.createSellerDao();
 		
-		System.out.println("TEST 1 => findById:"); // primeiro a perisitência para depois intanciar.
+		System.out.println("TEST 1 => seller findById:"); // primeiro a perisitência para depois intanciar.
 		
 		Seller rows = sellerDao.findById(3);
 		
 		System.out.println(rows);
 		
-		System.out.println("TEST 2 => findByDepartment:");
+		System.out.println("TEST 2 => seller findByDepartment:");
 		Department department = new Department(2, null);
 		
 		List<Seller> list = sellerDao.findByDepartment(department);
@@ -29,7 +30,7 @@ public class Program {
 			System.out.println(li);
 		}
 		
-		System.out.println("TEST 3 => findAll:");
+		System.out.println("TEST 3 => seller findAll:");
 		
 		list = sellerDao.findAll();
 		
@@ -52,10 +53,45 @@ public class Program {
 		
 		System.out.println("\n=== TEST 6: seller delete =====");
 		
-		Seller seller = sellerDao.findById(1);
+		seller = sellerDao.findById(1);
 		sellerDao.deleteById(seller.getId());
 		
 		System.out.println("Delete completed");
+
+		
+		DepartmentDao departmentDao = DaoFactory.createDepartmentDao();
+		
+		System.out.println("\n=== TEST 1: department Insert =====");
+		
+		department = new Department(null,"Drinks");
+		departmentDao.insert(department);
+		
+		System.out.println("New Department: " + department.getName() + " Id: " + department.getId());
+		
+		System.out.println("\n=== TEST 2: department findById and Update =====");
+		
+		Department findByidDe = departmentDao.findById(1);
+		
+		findByidDe.setName("Computerss");
+		
+		departmentDao.update(findByidDe);
+		
+		System.out.println("Updated!");
+		
+		System.out.println("\n=== TEST 2: department delete =====");
+		
+		departmentDao.deleteById(5);
+		
+		System.out.println("deleted");
+		
+		System.out.println("\n=== TEST 2: department findAll =====");
+		
+		List<Department> dpFindAll = departmentDao.findAll();
+		
+		for(Department dp: dpFindAll) {
+			System.out.println(dp);
+		}
+		
 
 	}
 

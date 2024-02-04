@@ -169,7 +169,7 @@ public class SellerDaoJDBC implements SellerDao {
 					+ "ORDER BY Name ");
 			rs = st.executeQuery();
 			
-			Map<Integer, Department> map = new HashMap<>(); // O map servirá para evitar repetição de instanciação do departamento dentro da classe Seller
+			Map<Integer, Department> map = new HashMap<>(); 
 			
 			List<Seller> list = new ArrayList<>();
 			
